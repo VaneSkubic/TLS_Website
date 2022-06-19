@@ -284,6 +284,8 @@ h2 {
                 }
             }
             .special {
+                transition: all .3s;
+                transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
                 display: flex;
                 flex-direction: column;
                 span {
