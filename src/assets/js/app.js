@@ -30,16 +30,15 @@ import "./components/swiper";
         var menuText = document.querySelector('.left-container');
         var topBar = document.querySelector('.top-bar');
         button.onclick = function() {
-            // navbar.style.display = 'none'
             menu.style.width = '100vw';
+            menu.style.transform = 'translateX(0)';
             window.setTimeout(function() {
                 menuText.style.transform = 'translateX(0)';
             }, 400)
             topBar.style.opacity = '1';
         }
         close.onclick = function() {
-            // navbar.style.display = 'block'
-            menu.style.width = '0';
+            menu.style.transform = 'translateX(-100%)';
             menuText.style.transform = 'translateX(-200%)';
             topBar.style.opacity = '0';
         }
