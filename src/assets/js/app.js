@@ -32,9 +32,7 @@ import "./components/swiper";
         button.onclick = function() {
             menu.style.width = '100vw';
             menu.style.transform = 'translateX(0)';
-            window.setTimeout(function() {
-                menuText.style.transform = 'translateX(0)';
-            }, 400)
+            menuText.style.transform = 'translateX(0)';
             topBar.style.opacity = '1';
         }
         close.onclick = function() {

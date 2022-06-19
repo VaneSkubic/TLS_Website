@@ -39,8 +39,8 @@ nav {
 }
 
 #menu {
-    transition: all .5s;
-    transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
+    transition: all 1s;
+    transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
     z-index: 20;
     position: fixed;
     top: 0;
@@ -81,8 +81,9 @@ nav {
             align-items: center;
         }
         .left-container {
-            transition: all .5s;
-            transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
+            transition: all .8s;
+            transition-delay: .4s;
+            transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
             transform: translateX(-200%);
             width: 70%;
             margin: auto;
