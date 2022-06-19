@@ -279,7 +279,7 @@ h2 {
                 display: contents;
                 span {
                     transition: all .3s;
-                    transition-timing-function: cubic-bezier(0, .54, 0, .95);
+                    transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
                     opacity: 0;
                 }
             }
@@ -303,7 +303,7 @@ h2 {
             }
             .line {
                 transition: all .3s;
-                transition-timing-function: cubic-bezier(0, .54, 0, .95);
+                transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
                 opacity: 0;
                 margin: 0 2rem;
                 flex-grow: 1;
@@ -318,7 +318,7 @@ h2 {
     position: relative;
     transform: translateX(-200%);
     transition: all .8s;
-    transition-timing-function: cubic-bezier(0, .54, 0, .95);
+    transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
 }
 
 .reveal-left.active {
