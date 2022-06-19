@@ -71,7 +71,7 @@ import "./components/swiper";
     function scrollAnimations() {
         var downElements = document.getElementsByClassName('scroll-down');
         var upElements = document.getElementsByClassName('scroll-up');
-        var speed = 0.08
+        var speed = 0.1
 
         for (let i = 0; i < downElements.length; i++) {
             var elementTop = downElements[i].getBoundingClientRect().top;
