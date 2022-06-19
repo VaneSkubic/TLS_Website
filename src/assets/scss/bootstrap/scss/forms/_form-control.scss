@@ -1,0 +1,45 @@
+//
+// General form controls (plus a few specific high-level interventions)
+//
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-family: $input-font-family;
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+  appearance: none; // Fix appearance for date inputs in Safari
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  &:focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+  }
+
+  // Placeholder
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border-color;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+}

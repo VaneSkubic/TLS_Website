@@ -1,0 +1,91 @@
+// main: ../main.scss
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/// Transitions 
+@mixin default-transition($time) {
+    transition: all $time ease;
+}
+
+@mixin default-transition-duration($time) {
+    transition-duration: $time;
+}
+
+/// Content
+@mixin content($offset, $prefix){
+  .mt-content#{$prefix} {
+      margin-top: $offset;
+
+      @include media-breakpoint-down(md) {
+          margin-top: $content-offset-mobile;
+      }
+  }
+
+  .mb-content#{$prefix} {
+      margin-bottom: $offset;
+
+      @include media-breakpoint-down(md) {
+          margin-bottom: $content-offset-mobile;
+      }
+  }
+
+  .pt-content#{$prefix} {
+      padding-top: $offset;
+
+      @include media-breakpoint-down(md) {
+          padding-top: $content-offset-mobile;
+      }
+  }
+
+  .pb-content#{$prefix} {
+      padding-bottom: $offset;
+
+      @include media-breakpoint-down(md) {
+          padding-bottom: $content-offset-mobile;
+      }
+  }
+}
+
+/// Svg item current color
+@mixin svg-current-color($element, $property) {
+  #{$element} {
+    #{$property}: currentColor;
+  }
+}
+
+@mixin input-group-addon-icon($icon) {
+  &.#{$icon}:before {
+      content: url("../img/icons/" + $icon + ".svg") !important;
+  } 
+} 
