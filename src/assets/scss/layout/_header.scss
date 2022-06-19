@@ -67,6 +67,9 @@ nav {
             height: calc(2rem + 1vw);
             width: auto;
         }
+        a:hover {
+            transform: scale(1.1);
+        }
     }
     .content {
         width: 100%;
@@ -89,6 +92,9 @@ nav {
             justify-content: center;
             a {
                 padding-bottom: 1rem;
+            }
+            a:hover {
+                transform: translateY(-3px);
             }
         }
         .right {
