@@ -19,20 +19,8 @@
 // 5. Components
 @import 'components/button',
 'components/form';
-#eu-banner {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    margin: 0 1rem 1rem 0;
-    height: 2rem;
-    img {
-        height: 2rem;
-        height: 100%;
-    }
-}
-
 h2 {
+    position: relative;
     font-size: calc(2vw + 1.5rem);
     font-weight: 400;
     width: calc(26vw + 10rem);
@@ -69,7 +57,9 @@ h2 {
     align-items: center;
     #about-image {
         flex: 1;
-        justify-self: center;
+        justify-self: flex-start;
+        padding: 0 !important;
+        margin-right: 2.5rem;
         img {
             width: 100%;
         }
@@ -78,6 +68,7 @@ h2 {
         justify-self: flex-start;
         align-self: flex-start;
         flex: 1;
+        padding-left: 3rem;
         * {
             margin-bottom: 2rem;
         }
@@ -287,8 +278,19 @@ h2 {
                 padding: 0;
                 display: contents;
                 span {
-                    transition: all .3s ease-in;
+                    transition: all .3s;
+                    transition-timing-function: cubic-bezier(0, .54, 0, .95);
                     opacity: 0;
+                }
+            }
+            .special {
+                display: flex;
+                flex-direction: column;
+                span {
+                    display: contents;
+                }
+                .smaller {
+                    font-size: 1rem;
                 }
             }
             .img-container {
@@ -300,7 +302,8 @@ h2 {
                 height: auto;
             }
             .line {
-                transition: all .3s ease-in;
+                transition: all .3s;
+                transition-timing-function: cubic-bezier(0, .54, 0, .95);
                 opacity: 0;
                 margin: 0 2rem;
                 flex-grow: 1;
@@ -314,7 +317,8 @@ h2 {
 .reveal-left {
     position: relative;
     transform: translateX(-200%);
-    transition: all .8s ease-in-out;
+    transition: all .8s;
+    transition-timing-function: cubic-bezier(0, .54, 0, .95);
 }
 
 .reveal-left.active {
@@ -327,13 +331,16 @@ h2 {
     }
     #about-container {
         padding: 3rem 0 !important;
+        #about-text {
+            padding: 0 !important;
+        }
     }
     #international-container {
         flex-direction: column !important;
         justify-content: right;
         #countries {
             flex-direction: column !important;
-            margin: 0 0 0 47vw !important;
+            margin: 0 0 0 35vw !important;
             justify-self: center !important;
         }
     }
@@ -385,4 +392,9 @@ h2 {
     .personal-info {
         flex-direction: column;
     }
+}
+
+.scroll-down,
+.scroll-up {
+    position: relative;
 }

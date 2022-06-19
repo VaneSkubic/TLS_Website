@@ -4,8 +4,8 @@ import "./components/swiper";
 
 (function() {
     var navbar = document.querySelector('nav');
-    var menuOpened = false;
-    window.addEventListener('scroll', function() {
+
+    function navToggle() {
         if (window.scrollY > 10) {
             navbar.querySelectorAll('img').forEach(element => {
                 element.style.filter = 'invert(1)';
@@ -21,28 +21,29 @@ import "./components/swiper";
             navbar.style.backgroundColor = 'rgba(0, 0, 0, 0)';
             navbar.style.borderBottom = 'none'
         }
-    })
-    $(document).on('scroll', function() {
-        var headers = document.querySelectorAll('h2');
-        headers.forEach(element => {
-            if (element.getBoundingClientRect().top < window.innerHeight / 2) {}
-        })
-    })
-
-    var button = document.querySelector('#hamburger');
-    var menu = document.querySelector('#menu');
-    var close = document.querySelector('#close');
-    button.onclick = function() {
-        navbar.style.display = 'none'
-        menu.style.display = 'block';
-        menu.style.transform = 'scale(1)';
-    }
-    close.onclick = function() {
-        navbar.style.display = 'block'
-        menu.style.display = 'none';
     }
 
-    window.addEventListener('scroll', reveal)
+    function menuToggle() {
+        var button = document.querySelector('#hamburger');
+        var menu = document.querySelector('#menu');
+        var close = document.querySelector('#close');
+        var menuText = document.querySelector('.left-container');
+        var topBar = document.querySelector('.top-bar');
+        button.onclick = function() {
+            navbar.style.display = 'none'
+            menu.style.width = '100vw';
+            window.setTimeout(function() {
+                menuText.style.transform = 'translateX(0)';
+            }, 400)
+            topBar.style.opacity = '1';
+        }
+        close.onclick = function() {
+            navbar.style.display = 'block'
+            menu.style.width = '0';
+            menuText.style.transform = 'translateX(-200%)';
+            topBar.style.opacity = '0';
+        }
+    }
 
     function reveal() {
         var reveals = document.getElementsByClassName('reveal-left');
@@ -67,10 +68,39 @@ import "./components/swiper";
                 texts[i].style.opacity = '0';
                 lines[i].style.opacity = '0';
             }
+        }
+    }
+
+    function scrollAnimations() {
+        var downElements = document.getElementsByClassName('scroll-down');
+        var upElements = document.getElementsByClassName('scroll-up');
+        var speed = 0.08
+
+        for (let i = 0; i < downElements.length; i++) {
+            var elementTop = downElements[i].getBoundingClientRect().top;
+
+            if (elementTop > 0 && elementTop < window.innerHeight) {
+                console.log(elementTop * speed - (window.innerHeight / 2) * speed)
+                downElements[i].style.bottom = elementTop * speed - (window.innerHeight / 2) * speed + "px";
+            }
 
         }
+        for (let i = 0; i < upElements.length; i++) {
+            var elementTop = upElements[i].getBoundingClientRect().top;
 
+            if (elementTop > 0 && elementTop < window.innerHeight) {
+                upElements[i].style.top = elementTop * speed - (window.innerHeight / 2) * speed + "px";
+            }
 
+        }
     }
+
+    window.addEventListener('scroll', function() {
+        navToggle();
+        reveal();
+        scrollAnimations()
+    })
+
+    menuToggle();
 
 })();

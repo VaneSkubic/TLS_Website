@@ -25,9 +25,11 @@ nav {
         display: flex;
         .link {
             margin: 0.2rem 1rem;
-            transition: all .1s ease-in !important;
+            transition: all .1s !important;
+            transition-timing-function: cubic-bezier(0, .54, 0, .95);
             img {
-                transition: all .1s ease-in;
+                transition: all .1s;
+                transition-timing-function: cubic-bezier(0, .54, 0, .95);
             }
         }
         .link:hover {
@@ -37,21 +39,24 @@ nav {
 }
 
 #menu {
+    transition: all .5s;
+    transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
     z-index: 10;
-    display: none;
     position: fixed;
     top: 0;
-    transform: translateX(-100%);
+    left: 0;
     height: 100vh;
-    width: 100vw;
+    // width: 100vw;
+    width: 0;
     overflow: hidden;
     background-color: #212121;
     .top-bar {
         padding: 3rem 0;
         width: 100%;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
+        opacity: 0;
     }
     .top-bar-container {
         width: 90%;
@@ -74,6 +79,9 @@ nav {
             align-items: center;
         }
         .left-container {
+            transition: all .5s;
+            transition-timing-function: cubic-bezier(0, .54, 0, .95) reverse;
+            transform: translateX(-200%);
             width: 70%;
             margin: auto;
             display: flex;
